@@ -1,6 +1,3 @@
-from utils import read_input
-
-
 def part1(lines):
     return sum(check_line(line) for line in lines)
 
@@ -16,8 +13,7 @@ def check_line(line):
     return (monotone_increase or monotone_decrease) and valid_diffs
 
 
-if __name__ == '__main__':
-    input_data = read_input('inputs/day2.txt')
-    input_data = [[int(n) for n in row.split()] for row in input_data]
-    print(part1(input_data))
-    print(part2(input_data))
+def main(input_lines):
+    lines = [[int(n) for n in row.split()] for row in input_lines]
+    print(part1(lines))
+    print(part2(lines))

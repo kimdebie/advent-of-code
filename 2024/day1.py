@@ -1,7 +1,5 @@
 from collections import Counter
 
-from utils import read_input
-
 
 def part1(firsts, seconds):
     firsts.sort()
@@ -14,15 +12,13 @@ def part2(firsts, seconds):
     return sum(n * second_counts[n] for n in firsts)
 
 
-def split_firsts_seconds(input):
-    numbers = [[int(n) for n in row.split()] for row in input]
+def split_firsts_seconds(input_lines):
+    numbers = [[int(n) for n in row.split()] for row in input_lines]
     firsts, seconds = [list(l) for l in zip(*numbers)]
     return firsts, seconds
 
 
-if __name__ == '__main__':
-    input = read_input('inputs/day1.txt')
-    firsts, seconds = split_firsts_seconds(input)
+def main(input_lines):
+    firsts, seconds = split_firsts_seconds(input_lines)
     print(part1(firsts, seconds))
     print(part2(firsts, seconds))
-
